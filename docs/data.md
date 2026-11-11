@@ -9,12 +9,16 @@
 | `observation_id` | str | 必填 |
 | `flight` | str | 必填 |
 | `mode` | str | 必填 |
-| `block` | int | 允许空值，空值不是零 |
-| `minute` | int | 允许空值，空值不是零 |
+| `block` | int | 必填 |
+| `minute` | int | 必填 |
 | `energy` | float | 必填 |
-| `wind` | float | 允许空值，空值不是零 |
-| `switch_minute` | int | 允许空值，空值不是零 |
-| `planned_mode` | str | 允许空值，空值不是零 |
-| `available` | int | 允许空值，空值不是零 |
+| `wind` | float | 必填 |
+| `switch_minute` | int | 必填 |
+| `planned_mode` | str | 必填 |
+| `available` | int | 必填 |
 
 时间字段 day、week、tick、hour、minute、cycle、start_day、reported_day、known_at、visible_at、opened、observed 均以各字段名所述的相对时间单位表示整数；不同字段并不必然代表同一种时间。缺少的登记码与浓度等信息保持为空。示例只表达产品数据结构，不能代替实际调查资料。
+
+## 业务字段语义
+
+energy 是该分钟产出电量，单位千瓦时；available=0 表示该分钟停机，产出为零。wind 为米每秒。block 是航次内分配区块，switch_minute 是区块起始分钟，planned_mode 是计划分配，mode 是实际执行。

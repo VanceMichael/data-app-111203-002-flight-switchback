@@ -1,5 +1,5 @@
 FIELDS = {'observation_id': 'str', 'flight': 'str', 'mode': 'str', 'block': 'int', 'minute': 'int', 'energy': 'float', 'wind': 'float', 'switch_minute': 'int', 'planned_mode': 'str', 'available': 'int'}
-REQUIRED = ['observation_id', 'flight', 'mode', 'energy']
+REQUIRED = ['observation_id', 'flight', 'mode', 'block', 'minute', 'energy', 'wind', 'switch_minute', 'planned_mode', 'available']
 ENTITY = 'flight'
 GROUP = 'mode'
 MEASURE = 'energy'
