@@ -22,3 +22,11 @@
 ## 业务字段语义
 
 energy 是该分钟产出电量，单位千瓦时；available=0 表示该分钟停机，产出为零。wind 为米每秒。block 是航次内分配区块，switch_minute 是区块起始分钟，planned_mode 是计划分配，mode 是实际执行。
+
+## switchback 分析中的字段角色
+
+switchback 分析（见 [switchback.md](switchback.md)）以设计文件中的预先分配
+为准，本文件里的 `planned_mode` 仅用于逐分钟校验设计文件是否被正确执行。
+对比分组始终使用计划分配（ITT），实际 `mode` 只进入执行偏离诊断；
+`available=0` 的分钟不产生电量但仍计入计划暴露分钟。`block`、`switch_minute`
+与 `minute` 共同决定洗脱段与分析截止点的分钟分类。
